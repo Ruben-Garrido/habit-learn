@@ -4,7 +4,7 @@ import { SocialLogin } from '../components/login/SocialLogin'
 
 export const Login = () => {
 
-  const handleLogin = (e) => {
+  const handleLogin = (e) => {//handlelogin = manejar el inicio de sesión
     e.preventDefault();
     // Aquí conectas con authService
     console.log('Login submitted');

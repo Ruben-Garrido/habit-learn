@@ -1,13 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FormLogin } from '../components/login/FormLogin'
 import { SocialLogin } from '../components/login/SocialLogin'
 
 export const Login = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleLogin = (e) => {//handlelogin = manejar el inicio de sesión
+  const handleLogin = (e) => {
     e.preventDefault();
-    // Aquí conectas con authService
-    console.log('Login submitted');
+    setLoading(true);
+    setError('');
+    // Simulación de login
+    setTimeout(() => {
+      setLoading(false);
+      // setError('Credenciales incorrectas'); // Descomenta para simular error
+      console.log('Login submitted');
+    }, 1000);
   };
   return (
     <>
@@ -15,6 +23,8 @@ export const Login = () => {
       <div className="bg-black p-8 rounded-lg shadow-lg text-white w-80">
         <h2 className="text-2xl font-bold mb-6 text-center">Welcome Back</h2>
         <FormLogin onSubmit={handleLogin} />
+        {loading && <div className="text-center text-blue-300">Cargando...</div>}
+        {error && <div className="text-center text-red-400">{error}</div>}
         <div className="my-4 text-center">or</div>
         <SocialLogin />
       </div>

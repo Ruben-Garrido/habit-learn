@@ -1,5 +1,6 @@
 import React from 'react'
 import logo from '../../assets/images/LogoHabitLearn.png'
+import { Link } from 'react-router-dom'
 
 export const SideBar = () => {
   return (
@@ -11,9 +12,15 @@ export const SideBar = () => {
         </div>
         
         <ul className='space-y-4'>
-            <li className='hover:bg-[#1e9b8c] p-2 rounded cursor-pointer'>Home</li>
-            <li className='hover:bg-[#1e9b8c] p-2 rounded cursor-pointer'>Habit Tracker</li>
-            <li className='hover:bg-[#1e9b8c] p-2 rounded cursor-pointer'>Daily Lesson</li>
+            <li className='hover:bg-[#1e9b8c] p-2 rounded cursor-pointer'>
+              <Link to="/dashboard">Home</Link>
+            </li>
+            <li className='hover:bg-[#1e9b8c] p-2 rounded cursor-pointer'>
+              <Link to="/dashboard/habits">Habit Tracker</Link>
+            </li>
+            <li className='hover:bg-[#1e9b8c] p-2 rounded cursor-pointer'>
+              <Link to="/dashboard/lesson">Daily Lesson</Link>
+            </li>
         </ul>
     </aside>
     </>
